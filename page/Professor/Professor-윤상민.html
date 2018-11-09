@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<title>Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="home_css.css">
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidenav w3-white w3-card-2 w3-animate-left" style="display:none" id="mySidenav">
+  <a href="javascript:void(0)" id="close" onclick="w3_close()" class="w3-closenav w3-xxxlarge w3-text-theme">Close <i class="fa fa-remove"></i></a>
+  <h1 class="w3-xxxlarge w3-text-teal" id="NavTitle">Side Navigation</h1>
+  <a href="Home.html">메인 화면</a>
+  <a href="javascript:void(0)">상담 예약</a>
+  <a href="javascript:void(0)">메세지</a>
+  <a href="javascript:void(0)">교수님 정보확인</a>
+  <a href="SignUp.html">회원가입</a>
+</nav>
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-opennav"></i> 
+  <div id="box1" class="w3-center">
+  <h4 id="line">OPENSOURCE TEAM ZOZO's WEB SITES</h4>
+  <h1 id="line1" class="w3-xxxlarge w3-animate-bottom">똑똑 계세요</h1>
+    <div id="line2">
+      <button id="BtCss" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Login</button>
+    </div>
+    <div id="line3">
+     <button id="BtCss" ><a href="SIgnUp.html" id="deco">SignUp</a></button>
+    </div>
+  </div>
+</header>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-8 w3-animate-top" id="login">
+      <header class="w3-container w3-theme-l1"> 
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">×</span>
+        <h4>Plase Login</h4>
+        <h5>You can login for two ways that is student or professor<i class="fa fa-smile-o"></i></h5>
+      </header>
+      <div class="w3-padding">
+        <form method="post" action="home.html">
+          <p>Login</p>
+           ID: <input type="text" name="id" id="Id"><br>
+           PW: <input type="password" name="pass" id="Pass"><br>
+           <input type="button" value="Login" id="loginBt"> 
+          </form>
+          <div id="space"></div>
+      </div>
+      <footer class="w3-container w3-theme-l1">
+        <p><a href="SignUp.html" id="deco">Sign Up</a></p>
+      </footer>
+    </div>
+</div>
+<div class="w3-container">
+<hr>
+
+<img src="윤상민.png" height="30%" width="13%" border="0" align= "left">
+
+<b><big><big><big>윤상민</big> 교수님</big></big></b>
+<p><big><b>Office :</b> 생활관 B동 614호</big><br></p>
+
+<input type="image" src="square.png" id="img1" height="10%" width="5%" align="bottom" onclick="cnt=1; changing();">
+<input type="image" src="stop.png" id="img2" height="10%" width="5%" align="bottom" onclick="cnt=2; changing();">
+<input type="image" src="square.png" id="img3" height="10%" width="5%" align="bottom" onclick="cnt=3; changing();">
+<br>
+<input type="button" value="SAVE">
+<script type="text/javascript" src="chaging.js"></script>
+</div>
+<div class="w3-center">
+</div>
+
+<!-- Script for Sidenav, Tabs, Accordions, Progress bars and slideshows -->
+<script>
+// Side navigation
+function w3_open() {
+    var x = document.getElementById("mySidenav");
+    x.style.width = "100%";
+    x.style.textAlign = "center";
+    x.style.fontSize = "50px";
+    x.style.paddingTop = "10%";
+    x.style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+
+// Tabs
+function openCity(evt, cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  var activebtn = document.getElementsByClassName("testbtn");
+  for (i = 0; i < x.length; i++) {
+      activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-dark-grey";
+}
+
+var mybtn = document.getElementsByClassName("testbtn")[0];
+mybtn.click();
+
+// Accordions
+function myAccFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-dark-grey";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-dark-grey", "");
+    }
+}
+
+// Slideshows
+var slideIndex = 1;
+
+function plusDivs(n) {
+slideIndex = slideIndex + n;
+showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+showDivs(1);
+
+// Progress Bars
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width == 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      document.getElementById("demoprgr").innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script>
+<script type="text/javascript" src="base.js"></script>
+</body>
+</html>
